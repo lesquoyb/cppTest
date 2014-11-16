@@ -68,13 +68,13 @@ Liste des fonctions de déclarations:
 Ces fonctions sont divisée en deux groupes, celles avec debug et celles sans. Les fonctions avec debug font exactement la même chose que celles sans, sauf qu'elles affichent les valeurs des arguments dans le cas où le test échoue, ce sont donc les fonctions par défaut. Néanmoins ces fonctions necessitent que vous ayez surchargé l'operateur "<<" de vos arguments (ou que ce soit des types simple), ce qui n'est pas toujours le cas, c'est pourquoi leurs équivalent existent sans debug. Les fonctions sans debug ont le même nom que celles avec à ceci près qu'elles sont suivies de "ND" pour "No Debug"(exemple "equals"=>"equalsND").
 Les fonctions ND ne seront donc pas détaillées puisqu'elles ont le même fonctionnement que les normales.
 Les fonctions disponibles sont donc:
-*equals(arg1,arg2): compare arg1 et arg2 et retourne true s'ils sont égaux, necessite donc d'avoir surchagé l'opérateur == .
-*nEquals(arg1,arg2): compare arg1 et arg2 et retourne true s'ils ne sont pas égaux, necessite donc d'avoir surchargé l'opérateur == .
-*diff(arg1,arg2): compare arg1 et arg2 et retourne true s'ils sont différent, le test est fait à l'aide de l'operateur != .
-*errorExpected(func): execute la fonction func et retourne true si une erreur a été levée, false sinon. Il n'y a pas de debug pour cette fonction. La fonction func doit être entre accolades.
+* equals(arg1,arg2): compare arg1 et arg2 et retourne true s'ils sont égaux, necessite donc d'avoir surchagé l'opérateur == .
+* nEquals(arg1,arg2): compare arg1 et arg2 et retourne true s'ils ne sont pas égaux, necessite donc d'avoir surchargé l'opérateur == .
+* diff(arg1,arg2): compare arg1 et arg2 et retourne true s'ils sont différent, le test est fait à l'aide de l'operateur != .
+* errorExpected(func): execute la fonction func et retourne true si une erreur a été levée, false sinon. Il n'y a pas de debug pour cette fonction. La fonction func doit être entre accolades.
 À noter: 
-*Ces fonctions stoppent l'execution de votre test, ne mettez donc pas de code en dessous car il ne sera pas executé.
-*Ces fonctions doivent être suivies d'un point virgule.
+* Ces fonctions stoppent l'execution de votre test, ne mettez donc pas de code en dessous car il ne sera pas executé.
+* Ces fonctions doivent être suivies d'un point virgule.
 #Faire une façade#
 Lorsque vous créez plusieurs ensembles de tests, il n'est pas conseillé de les executer à la suite dans votre programme principal. Au lieu de ça on peut créer une façade se chargeant de le faire tout en étant plus lisible et facilement maintenable. Pour ce faire il suffira de créer un nouveau fichier d'entête, d'y inclure "testfacade.h" ainsi que les headers des ensembles de tests à lancer et de proceder comme suis:
 // déclaration de la façade
