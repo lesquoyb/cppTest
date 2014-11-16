@@ -12,6 +12,7 @@
 
 
 
+
 class CppTest{
 
 
@@ -26,7 +27,7 @@ protected:
 public:
 
     void run(){
-        for(int i = 0 ; i < _functions.size() ; i++){
+        for(unsigned int i = 0 ; i < _functions.size() ; i++){
             std::string detail;
             if(_functions[i]()) detail = "réussie";
             else detail ="ECHEC !";

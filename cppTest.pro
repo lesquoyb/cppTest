@@ -4,7 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 QMAKE_CXXFLAGS += -std=c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    point.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -14,5 +15,9 @@ HEADERS += \
     cpptestfacade.h \
     cpptesttools.h \
     demolauncher.h \
-    demotest1.h
+    demotest1.h\
+    point.h \
+    vecteur.h
+
+
 

@@ -1,6 +1,8 @@
 #ifndef CppTestTOOLS_H
 #define CppTestTOOLS_H
 
+
+#define diffND(arg1,arg2)           return diffNDFun(arg1,arg2)
 #define diff(arg1,arg2)             return diffFun(arg1,arg2)
 #define nEqualsND(arg1,arg2)        return !(arg1 == arg2)
 #define equalsND(arg1,arg2)         return arg1 == arg2
@@ -60,5 +62,18 @@ bool diffFun(T1 arg1, T2 arg2){
     return false;
 }
 
+
+template<class T1, class T2>
+/**
+ * @brief diff
+ * Function which returns true if arguments are different using operator!=
+ * @param arg1
+ * @param arg2
+ * @return
+ */
+bool diffNDFun(T1 arg1, T2 arg2){
+    if (arg1 != arg2) return true;
+    return false;
+}
 
 #endif // CppTestTOOLS_H

@@ -1,7 +1,7 @@
-#include <iostream>
-#include "demolauncher.h"
+#include "../projet_synthese_client/src/point.h"
 
-using namespace std;
+#include "cpptestfacade.h"
+#include "demolauncher.h"
 
 int main()
 {
