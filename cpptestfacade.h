@@ -16,6 +16,7 @@ public:
 
     void run(){
         int i = 0;
+        std::cout << std::endl;
         for(CppTest* t : _tests){
            std::cout << t->getName() << ": " << std::endl;
            int j = 0;

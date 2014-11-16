@@ -26,7 +26,7 @@ template<class T1, class T2>
  */
 bool equalsFun(T1 arg1, T2 arg2){
     if( arg1 == arg2) return true;
-    std::cout << "arg1: " << arg1 <<"arg2: " << arg2;
+    std::cout << "arg1: " << arg1 <<"arg2: " << arg2 << std::endl;
     return false;
 }
 
@@ -42,7 +42,7 @@ template<class T1, class T2>
  */
 bool notEqualsFun(T1 arg1, T2 arg2){
     if(!( arg1 == arg2)) return true;
-    std::cout << "arg1: " << arg1 <<"arg2: " << arg2;
+    std::cout << "arg1: " << arg1 <<"arg2: " << arg2 << std::endl;
     return false;
 }
 
@@ -58,7 +58,7 @@ template<class T1, class T2>
  */
 bool diffFun(T1 arg1, T2 arg2){
     if (arg1 != arg2) return true;
-    std::cout << "arg1 " << arg1 << "arg2 " << arg2;
+    std::cout << "arg1 " << arg1 << "arg2 " << arg2 << std::endl;
     return false;
 }
 
