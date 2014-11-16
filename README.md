@@ -10,7 +10,7 @@ déclaration de l'ensemble de tests
 	suite de tests
 fin de l'ensemble de tests
 ```
-Plus concrètement on déclarera un ensemble de tests avec l'expression "CPPTEST(nom)" où nom est le nom de l'ensemble de test, chaque test est déclaré avec l'expression "TESTCASE(nom,fonction);" où nom est le nom du test et fonction est le corp du test( plus de détail dans la partie corp de test).
+Plus concrètement on déclarera un ensemble de tests avec l'expression "CPPTEST(nom)" où nom est le nom de l'ensemble de test, chaque test est déclaré avec l'expression "TESTCASE(nom,fonction);" où nom est le nom du test et fonction est le corps du test( plus de détail dans la partie corps de test).
 Un exemple d'une vraie déclaration d'un ensemble de test:
 ```
 #ifndef DEMOTEST1_H
@@ -25,10 +25,10 @@ ENDTEST
 ```
 Facile non ?
 
-#Corp de test#
-Vous avez peut être remarqué dans l'exemple précédent que la fonction TESTCASE avait une syntaxe inhabituelle. En effet, la syntaxe de ces tests veut que les accolades du corp d'un test soient toujours présente afin de rester rapidement repérable. En se qui concerne l'utilisation même d'un test, il n'est évidemment pas restreint à une ligne (même si la norme des tests unitaire veut qu'ils soient le plus succint possible) et vous pouvez y faire absolument tous ce que vous faites dans une fonction normale comme  déclarer des variables mettre des conditions ou des boucles. La seul contrainte est que vous devez absoluement renvoyer un booléen (true si le test réussi, false sinon), ou utiliser les fonctions déjà écrites(comme le "equals" utilisé un peu plus haut) qui se chargent de le faire pour vous.   
+#Corps de test#
+Vous avez peut être remarqué dans l'exemple précédent que la fonction TESTCASE avait une syntaxe inhabituelle. En effet, la syntaxe de ces tests veut que les accolades du corps d'un test soient toujours présente afin de rester rapidement repérable. En se qui concerne l'utilisation même d'un test, il n'est évidemment pas restreint à une ligne (même si la norme des tests unitaire veut qu'ils soient le plus succint possible) et vous pouvez y faire absolument tous ce que vous faites dans une fonction normale comme  déclarer des variables mettre des conditions ou des boucles. La seul contrainte est que vous devez absoluement renvoyer un booléen (true si le test réussi, false sinon), ou utiliser les fonctions déjà écrites(comme le "equals" utilisé un peu plus haut) qui se chargent de le faire pour vous.   
 ##Utilisation de variables communes à tous les tests##
-Quand on écrit un ensemble de tests cohérents, on a souvent besoin d'utiliser dans plusieurs tests les mêmes variables. Par exemple si vous écrivez un ensemble de tests afin de vérifier le bon fonctionnement de transformations géométriques, il y a des chances que vous ayez à plusieurs reprises besoin d'utiliser le point d'origine du plan. Afin d'éviter la repetition de code, il est possible de déclarer des variables dans le corp de l'ensemble de test et de les appeler simplement par leur nom dans les tests. Il faudra néanmoins déclarer les variables avant les tests qui les utilisent. Un petit exemple concret:
+Quand on écrit un ensemble de tests cohérents, on a souvent besoin d'utiliser dans plusieurs tests les mêmes variables. Par exemple si vous écrivez un ensemble de tests afin de vérifier le bon fonctionnement de transformations géométriques, il y a des chances que vous ayez à plusieurs reprises besoin d'utiliser le point d'origine du plan. Afin d'éviter la repetition de code, il est possible de déclarer des variables dans le corps de l'ensemble de test et de les appeler simplement par leur nom dans les tests. Il faudra néanmoins déclarer les variables avant les tests qui les utilisent. Un petit exemple concret:
 ```
 #ifndef DEMOTEST1_H
 #define DEMOTEST1_H
@@ -65,7 +65,7 @@ Liste des fonctions de déclarations:
 * TESTLAUNCHER(nom): déclare une façade "nom"
 * ENDLAUNCHER: fin de la façade.
 
-##Les fonctions à utiliser dans un corp de test##
+##Les fonctions à utiliser dans un corps de test##
 Ces fonctions sont divisée en deux groupes, celles avec debug et celles sans. Les fonctions avec debug font exactement la même chose que celles sans, sauf qu'elles affichent les valeurs des arguments dans le cas où le test échoue, ce sont donc les fonctions par défaut. Néanmoins ces fonctions necessitent que vous ayez surchargé l'operateur "<<" de vos arguments (ou que ce soit des types simple), ce qui n'est pas toujours le cas, c'est pourquoi leurs équivalent existent sans debug. Les fonctions sans debug ont le même nom que celles avec à ceci près qu'elles sont suivies de "ND" pour "No Debug"(exemple "equals"=>"equalsND").
 Les fonctions ND ne seront donc pas détaillées puisqu'elles ont le même fonctionnement que les normales.
 Les fonctions disponibles sont donc:
