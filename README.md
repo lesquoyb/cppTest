@@ -59,11 +59,12 @@ C'est parce que j'utilise des fonctions déjà construite qui s'en chargent pour
 ##Les fonctions de déclarations##
 Elles ont déjà été abordée précédemment, mais il me semblait important de préciser que leur paramètre "nom" était écrit tel quel, en texte brut, sans guillemets autour. De plus elles ne sont pas suivies d'un point virgule.
 Liste des fonctions de déclarations:
-*CPPTEST(nom): déclare un ensemble de test "nom"
-*ENDTEST: fin de l'ensemble de test
-*TESTCASE(nom,function): déclare un test "nom" exécutant la fonction "function".
-*TESTLAUNCHER(nom): déclare une façade "nom"
-*ENDLAUNCHER: fin de la façade.
+* CPPTEST(nom): déclare un ensemble de test "nom"
+* ENDTEST: fin de l'ensemble de test
+* TESTCASE(nom,function): déclare un test "nom" exécutant la fonction "function".
+* TESTLAUNCHER(nom): déclare une façade "nom"
+* ENDLAUNCHER: fin de la façade.
+
 ##Les fonctions à utiliser dans un corp de test##
 Ces fonctions sont divisée en deux groupes, celles avec debug et celles sans. Les fonctions avec debug font exactement la même chose que celles sans, sauf qu'elles affichent les valeurs des arguments dans le cas où le test échoue, ce sont donc les fonctions par défaut. Néanmoins ces fonctions necessitent que vous ayez surchargé l'operateur "<<" de vos arguments (ou que ce soit des types simple), ce qui n'est pas toujours le cas, c'est pourquoi leurs équivalent existent sans debug. Les fonctions sans debug ont le même nom que celles avec à ceci près qu'elles sont suivies de "ND" pour "No Debug"(exemple "equals"=>"equalsND").
 Les fonctions ND ne seront donc pas détaillées puisqu'elles ont le même fonctionnement que les normales.
@@ -80,9 +81,11 @@ Les fonctions disponibles sont donc:
 
 #Faire une façade#
 Lorsque vous créez plusieurs ensembles de tests, il n'est pas conseillé de les executer à la suite dans votre programme principal. Au lieu de ça on peut créer une façade se chargeant de le faire tout en étant plus lisible et facilement maintenable. Pour ce faire il suffira de créer un nouveau fichier d'entête, d'y inclure "testfacade.h" ainsi que les headers des ensembles de tests à lancer et de proceder comme suis:
+```
 // déclaration de la façade
 	// ajout des test
 // fin de la façade
+```
 plus concretement si on voulait créer une façade pour lancer les tests de l'ensemble Demo1 créé un peu plus tôt cela donnerai:
 ```
 #ifndef DEMOLAUNCHER_H
@@ -120,8 +123,9 @@ il n'y a pas d'erreur dans l'ensemble des tests
 ```
 Et voilà vous avez une batterie de test facilement modifiable qui se lance en deux lignes. 
 #Exemple complet#
-
+À venir, pour l'instant il existe un petit exemple dans le dossier "demo".
 #Problèmes pouvant survenir#
 ##function is not a member of std##
-
-##Nombre dans le nom de fonction##
+Si ce message d'erreur apparaît, cela signifie que vous compilez avec une version de c++ inferieur à c++11, si vous utilisez gcc, ajoutez l'argument "-std=c++0x" à votre ligne de commande, si vous utilisez l'IDE QtCreator, ajoutez "QMAKE_CXXFLAGS += -std=c++11" ou "CONFIG += c++11" dans votre fichier project.pro. 
+##Expected token ';' got ..., la fonction de déclaration est soulignée##
+Cette erreur arrive si le premier caractère que vous passez à la fonction est un chiffre, il suffit donc de l'ecrire en toutes lettre ou simplement de mettre un caractère avant le chiffre.

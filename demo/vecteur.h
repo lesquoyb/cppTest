@@ -15,8 +15,7 @@ public:
 
     double getDeplacementX()const{return _deplacementX;}
     double getDeplacementY()const{return _deplacementY;}
-    Vecteur operator* (const Vecteur& v);
-    double norme()const;
+
 };
 
 #endif // VECTEUR_H

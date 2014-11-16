@@ -15,8 +15,8 @@ CPPTEST(Demo1)
 	Point un(1,1);
 	Vecteur vUn(1,1);
 
-	TESTCASE(Translation,{
-		    equals(origine.translation(vUn),un);
+    TESTCASE(Translation,{
+            equals(origine.translation(vUn),un);
 	});
 
 	TESTCASE(TranslationFausse,{
