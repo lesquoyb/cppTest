@@ -72,9 +72,12 @@ Les fonctions disponibles sont donc:
 * nEquals(arg1,arg2): compare arg1 et arg2 et retourne true s'ils ne sont pas égaux, necessite donc d'avoir surchargé l'opérateur == .
 * diff(arg1,arg2): compare arg1 et arg2 et retourne true s'ils sont différent, le test est fait à l'aide de l'operateur != .
 * errorExpected(func): execute la fonction func et retourne true si une erreur a été levée, false sinon. Il n'y a pas de debug pour cette fonction. La fonction func doit être entre accolades.
+
 À noter: 
+
 * Ces fonctions stoppent l'execution de votre test, ne mettez donc pas de code en dessous car il ne sera pas executé.
 * Ces fonctions doivent être suivies d'un point virgule.
+
 #Faire une façade#
 Lorsque vous créez plusieurs ensembles de tests, il n'est pas conseillé de les executer à la suite dans votre programme principal. Au lieu de ça on peut créer une façade se chargeant de le faire tout en étant plus lisible et facilement maintenable. Pour ce faire il suffira de créer un nouveau fichier d'entête, d'y inclure "testfacade.h" ainsi que les headers des ensembles de tests à lancer et de proceder comme suis:
 // déclaration de la façade
