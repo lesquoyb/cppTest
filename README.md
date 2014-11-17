@@ -26,7 +26,7 @@ ENDTEST
 Facile non ?
 
 #Corps de test#
-Vous avez peut être remarqué dans l'exemple précédent que la fonction TESTCASE avait une syntaxe inhabituelle. En effet, la syntaxe de ces tests veut que les accolades du corps d'un test soient toujours présente afin de rester rapidement repérable. En se qui concerne l'utilisation même d'un test, il n'est évidemment pas restreint à une ligne (même si la norme des tests unitaire veut qu'ils soient le plus succint possible) et vous pouvez y faire absolument tous ce que vous faites dans une fonction normale comme  déclarer des variables mettre des conditions ou des boucles. La seul contrainte est que vous devez absoluement renvoyer un booléen (true si le test réussi, false sinon), ou utiliser les fonctions déjà écrites(comme le "equals" utilisé un peu plus haut) qui se chargent de le faire pour vous.   
+Vous avez peut être remarqué dans l'exemple précédent que la fonction TESTCASE avait une syntaxe inhabituelle. En effet, la syntaxe de ces tests veut que les accolades du corps d'un test soient toujours présente afin de rester rapidement repérable. En ce qui concerne l'utilisation même d'un test, il n'est évidemment pas restreint à une ligne (même si la norme des tests unitaire veut qu'ils soient le plus succint possible) et vous pouvez y faire absolument tous ce que vous faites dans une fonction normale comme  déclarer des variables mettre des conditions ou des boucles. La seule contrainte est que vous devez absoluement renvoyer un booléen (true si le test réussi, false sinon), ou utiliser les fonctions déjà écrites(comme le "equals" utilisé un peu plus haut) qui se chargent de le faire pour vous.   
 ##Utilisation de variables communes à tous les tests##
 Quand on écrit un ensemble de tests cohérents, on a souvent besoin d'utiliser dans plusieurs tests les mêmes variables. Par exemple si vous écrivez un ensemble de tests afin de vérifier le bon fonctionnement de transformations géométriques, il y a des chances que vous ayez à plusieurs reprises besoin d'utiliser le point d'origine du plan. Afin d'éviter la repetition de code, il est possible de déclarer des variables dans le corps de l'ensemble de test et de les appeler simplement par leur nom dans les tests. Il faudra néanmoins déclarer les variables avant les tests qui les utilisent. Un petit exemple concret:
 ```
@@ -54,10 +54,10 @@ ENDTEST
 ```
 
 #Fonctions disponibles#
-Au cours des exemple précédents, vous avez pu constater que je n'utilisais pas le mot clef return dans mes tests alors qu'ils ne peuvent fonctionner que s'ils renvoient un booléen.
-C'est parce que j'utilise des fonctions déjà construite qui s'en chargent pour moi. Un petit tour des fonctions disponible s'impose donc.
+Au cours des exemples précédents, vous avez pu constater que je n'utilisais pas le mot clef return dans mes tests alors qu'ils ne peuvent fonctionner que s'ils renvoient un booléen.
+C'est parce que j'utilise des fonctions déjà construites qui s'en chargent pour moi. Un petit tour des fonctions disponible s'impose donc.
 ##Les fonctions de déclarations##
-Elles ont déjà été abordée précédemment, mais il me semblait important de préciser que leur paramètre "nom" était écrit tel quel, en texte brut, sans guillemets autour. De plus elles ne sont pas suivies d'un point virgule.
+Elles ont déjà été abordées précédemment, mais il me semblait important de préciser que leur paramètre "nom" était écrit tel quel, en texte brut, sans guillemets autour. De plus elles ne sont pas suivies d'un point virgule.
 Liste des fonctions de déclarations:
 * CPPTEST(nom): déclare un ensemble de test "nom"
 * ENDTEST: fin de l'ensemble de test
