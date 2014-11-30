@@ -3,12 +3,12 @@
 #include "cpptest.h"
 #include <vector>
 
-#define TESTLAUNCHER(name) class name : public CppTestFacade { public:name(){
+#define TESTLAUNCHER(name) class name : public CppTestFacade { public: ~name(){for(CppTest* f : _tests){delete f;}} name(){
 #define ENDLAUNCHER }};
 
 class CppTestFacade{
 
-private:
+protected:
 
     std::vector<CppTest*> _tests;
 
